@@ -72,9 +72,9 @@ def get_OSCS_DATA(data):
         obj.type = resp_json['data'][0]['vuln_type']
         obj.cve = resp_json['data'][0]['cve_id']
         obj.cnvd = resp_json['data'][0]['cnvd_id']
-        obj.find_time = datetime.datetime.strptime(data['created_at'][:data['created_at'].rfind('+')], '%Y-%m-%dT%H:%M:%S')
-        obj.release_time = datetime.datetime.strptime(data['public_time'][:data['public_time'].rfind('+')], '%Y-%m-%dT%H:%M:%S')
-        obj.update_time = datetime.datetime.strptime(data['updated_at'][:data['updated_at'].rfind('+')], '%Y-%m-%dT%H:%M:%S')
+        obj.find_time = str(datetime.datetime.strptime(data['created_at'][:data['created_at'].rfind('+')], '%Y-%m-%dT%H:%M:%S'))
+        obj.release_time = str(datetime.datetime.strptime(data['public_time'][:data['public_time'].rfind('+')], '%Y-%m-%dT%H:%M:%S'))
+        obj.update_time = str(datetime.datetime.strptime(data['updated_at'][:data['updated_at'].rfind('+')], '%Y-%m-%dT%H:%M:%S'))
         # obj.find_time = str(datetime.datetime.fromisoformat(data['created_at']).date())
         # obj.release_time = str(datetime.datetime.fromisoformat(data['public_time']).date())
         # obj.update_time = str(datetime.datetime.fromisoformat(data['updated_at']).date())
