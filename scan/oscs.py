@@ -18,13 +18,14 @@ async def scan(day=1):
 
     cnnvd_details = []
 
+    page =1
     while True:
         url = 'https://www.oscs1024.com/oscs/v1/intelligence/list'
         header = {
             'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.80 Safari/537.36',
             'Connection': 'keep-alive',
         }
-        data={"page":1,"per_page":10}
+        data={"page":page,"per_page":10}
         try:
             r = requests.post(url, headers=header, data=data,timeout=300)
         except Exception as e:
@@ -48,6 +49,8 @@ async def scan(day=1):
             cnnvd_details.append(obj)
         if quit_flag:
             return cnnvd_details
+
+        page+=1
 
 
 
