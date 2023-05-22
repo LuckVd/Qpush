@@ -24,7 +24,7 @@ logger.addHandler(console_handler)
 async def async_run():
     tasks = []
     # tasks.append(cnnvd_scan(2))
-    tasks.append(oscs_scan(2))
+    tasks.append(oscs_scan(7))
     results_list = await asyncio.gather(*tasks)
 
     # for one in results[0]:
