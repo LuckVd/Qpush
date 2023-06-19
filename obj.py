@@ -52,6 +52,7 @@ class vuln_obj:
         vlist = [self.name, self.url, self.danger_level, self.type, self.cve, self.cnvd, self.find_time, self.release_time, self.update_time, self.influence, self.exp, self.poc, self.version, self.description, self.product, self.ref,self.origin]
         values = "'" + vlist[0] + "'"
         for i in range(1, len(vlist)):
-            values = values + "," + "\"" + vlist[i] + "\""
+            values = values + "," + "\"" + vlist[i].replace("\"","'") + "\""
         sql = 'insert into vul_info values(' + values + ');'
+        print(sql)
         return sql
